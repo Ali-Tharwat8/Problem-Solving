@@ -7,17 +7,28 @@ using namespace std;
 
 int main()
 {
-	int n; cin >> n;
+	int matrix[5][5] = {0};
+	
+	int num;
+	int row = 0, column = 0;
+	bool found = false;
 
-	int count = 0;
-	for (int i = 0; i < n; ++i)
+	while (row < 5 && !found)
 	{
-		int x, y, z;
-		cin >> x >> y >> z;
-		if ((x || y) && (y || z) && (x || z))
-			count++;
+		column = 0;
+		while (column < 5 && !found)
+		{
+			cin >> num;
+			if (num != 0)
+				found = true;
+			column++;
+		}
+		row++;
 	}
 
-	cout << count;
+	cout << abs(row - 3) + abs(column - 3);
+
+
+
 	return 0;
 }
