@@ -10,42 +10,20 @@ using namespace std;
 int main()
 {
 	int n; cin >> n;
-	vector<int> nums;
-
-	for(int i = 0; i < n; i++)
+	int count = 0;
+	char prev;
+	cin >> prev;
+	char current;
+	for (int i = 1; i < n; i++)
 	{
-		int num; cin >> num;
-		nums.push_back(num);
-	}
-
-
-
-	int first = 0, second = 0;
-	int front = 0, back = n - 1;
-	bool toggle = true;
-
-	for (int i = 0; i < n; i++)
-	{
-		int pick;
-		if (nums.at(front) >= nums.at(back))
+		cin >> current;
+		if (current == prev)
 		{
-			pick = nums.at(front);
-			front++;
+			count++;
 		}
-		else
-		{
-			pick = nums.at(back);
-			back--;
-		}
-
-		if (toggle)
-			first += pick;
-		else
-			second += pick;
-
-		toggle = !toggle;
+		prev = current;
 	}
-	cout << first << " " << second;
+	cout << count;
 
 	return 0;
 }
