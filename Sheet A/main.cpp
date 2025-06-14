@@ -2,33 +2,27 @@
 #include <string>
 #include <cmath>
 #include <algorithm>
+#include <vector>
 
 using namespace std;
 
 int main()
 {
-	int matrix[5][5] = {0};
-	
+	int n; cin >> n;
+	vector <int> nums;
 	int num;
-	int row = 0, column = 0;
-	bool found = false;
 
-	while (row < 5 && !found)
+	for (int i = 0; i < n; i++)
 	{
-		column = 0;
-		while (column < 5 && !found)
-		{
-			cin >> num;
-			if (num != 0)
-				found = true;
-			column++;
-		}
-		row++;
+		cin >> num;
+		nums.push_back(num);
 	}
 
-	cout << abs(row - 3) + abs(column - 3);
-
-
-
+    sort(nums.begin(), nums.end());
+	
+	for (int i = 0; i < n; i++)
+	{
+		cout << nums.at(i) << " ";
+	}
 	return 0;
 }
