@@ -8,21 +8,27 @@ using namespace std;
 
 int main()
 {
-	int n; cin >> n;
-	vector <int> nums;
-	int num;
-
-	for (int i = 0; i < n; i++)
+	string one, two;
+	cin >> one >> two;
+	int i = 0;
+	for (; i < one.size(); i++)
 	{
-		cin >> num;
-		nums.push_back(num);
+		if (tolower(one.at(i)) != tolower(two.at(i)))
+		{
+			if (tolower(one.at(i)) > tolower(two.at(i)))
+			{
+				cout << 1;
+				break;
+			}
+			else if (tolower(one.at(i)) < tolower(two.at(i)))
+			{
+				cout << -1;
+				break;
+			}
+		}
 	}
 
-    sort(nums.begin(), nums.end());
-	
-	for (int i = 0; i < n; i++)
-	{
-		cout << nums.at(i) << " ";
-	}
+	if (i == one.size())
+		cout << 0;
 	return 0;
 }
