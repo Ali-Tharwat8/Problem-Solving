@@ -7,16 +7,17 @@ using namespace std;
 
 int main()
 {
-	int x, y;
-	cin >> x >> y;
-	int count = 0;
+	int n; cin >> n;
 
-	while (x <= y)
+	int count = 0;
+	for (int i = 0; i < n; ++i)
 	{
-		count++;
-		x *= 3;
-		y *= 2;
+		int x, y, z;
+		cin >> x >> y >> z;
+		if ((x || y) && (y || z) && (x || z))
+			count++;
 	}
+
 	cout << count;
 	return 0;
 }
