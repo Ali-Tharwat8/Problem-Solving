@@ -9,14 +9,25 @@ using namespace std;
 
 int main()
 {
-	string name; cin >> name;
 	
-	set<char> distinct(name.begin(), name.end());
-	
-	if (distinct.size() % 2 == 0)
-		cout << "CHAT WITH HER!";
+	string word; cin >> word;
+	int small = 0, capital = 0;
+
+	for (char c : word)
+	{
+		if (islower(c))
+			small++;
+		else
+			capital++;
+	}
+
+	if (small >= capital)
+		transform(word.begin(), word.end(), word.begin(), ::tolower);
 	else
-		cout << "IGNORE HIM!";
+		transform(word.begin(), word.end(), word.begin(), ::toupper);
+
+	cout << word;
+
 
 	return 0;
 }
