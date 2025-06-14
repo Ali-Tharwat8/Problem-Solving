@@ -10,24 +10,22 @@ using namespace std;
 int main()
 {
 	
-	string word; cin >> word;
-	int small = 0, capital = 0;
+	int n; cin >> n;
+	string first, last;
+	int count = 1;
 
-	for (char c : word)
+	cin >> first;
+	for (int i = 1; i < n; i++)
 	{
-		if (islower(c))
-			small++;
-		else
-			capital++;
+		cin >> last;
+		if (first != last)
+		{
+			count++;
+			first = last;
+		}
 	}
 
-	if (small >= capital)
-		transform(word.begin(), word.end(), word.begin(), ::tolower);
-	else
-		transform(word.begin(), word.end(), word.begin(), ::toupper);
-
-	cout << word;
-
+	cout << count;
 
 	return 0;
 }
