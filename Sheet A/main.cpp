@@ -7,26 +7,16 @@ using namespace std;
 
 int main()
 {
-	int n;
-	cin >> n;
+	int x, y;
+	cin >> x >> y;
+	int count = 0;
 
-	int Anton = 0, Danik = 0;
-	char c;
-	for (int i = 0; i < n; ++i)
+	while (x <= y)
 	{
-		cin >> c;
-		if (c == 'A')
-			Anton++;
-		else
-			Danik++;
+		count++;
+		x *= 3;
+		y *= 2;
 	}
-
-	if (Anton > Danik)
-		cout << "Anton";
-	else if (Danik > Anton)
-		cout << "Danik";
-	else
-		cout << "Friendship";
-
+	cout << count;
 	return 0;
 }
