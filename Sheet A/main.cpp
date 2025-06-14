@@ -10,20 +10,21 @@ using namespace std;
 int main()
 {
 	int n; cin >> n;
-	int count = 0;
-	char prev;
-	cin >> prev;
-	char current;
-	for (int i = 1; i < n; i++)
+	
+	int current, police = 0, count = 0;
+	for (int i = 0; i < n; i++)
 	{
 		cin >> current;
-		if (current == prev)
+		if (current != -1)
+			police += current;
+		else
 		{
-			count++;
+			if (police)
+				police--;
+			else
+				count++;
 		}
-		prev = current;
 	}
 	cout << count;
-
 	return 0;
 }
