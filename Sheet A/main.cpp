@@ -9,22 +9,17 @@ using namespace std;
 
 int main()
 {
-	int n; cin >> n;
-	
-	int current, police = 0, count = 0;
-	for (int i = 0; i < n; i++)
-	{
-		cin >> current;
-		if (current != -1)
-			police += current;
+	string name; cin >> name;
+	char prev = 'a';
+	int sum = 0;
+	for (char c : name) {
+		int diff = abs(c - prev);
+		if (diff <= 13)
+			sum += diff;
 		else
-		{
-			if (police)
-				police--;
-			else
-				count++;
-		}
+			sum += (26 - diff);
+		prev = c;
 	}
-	cout << count;
+	cout << sum << endl;
 	return 0;
 }
