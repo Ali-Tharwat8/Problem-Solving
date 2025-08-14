@@ -9,27 +9,17 @@ using namespace std;
 
 int main()
 {
-	int num; cin >> num;
-	vector<int> color1;
-	vector<int> color2;
+	int price, pound; cin >> price >> pound;
 
-	for (int i = 0; i < num; i++) {
-		int color; cin >> color;
-		color1.push_back(color);
-		cin >> color;
-		color2.push_back(color);
-	}
+	int num = 0;
+	for (int i = 1; i <= 10; ++i) {
+		int temp = i * price;
+		num++;
 
-	int sum = 0;
-
-	for (int i = 0; i < num; i++) {
-		for (int j = 0; j < num; j++) {
-			if (i == j)
-				continue;
-			if (color2[i] == color1[j])
-				sum++;
+		if (temp % 10 == 0 || (temp - pound) % 10 == 0) {
+			break;
 		}
 	}
-	cout << sum << endl;
+	cout << num << endl;
 	return 0;
 }
