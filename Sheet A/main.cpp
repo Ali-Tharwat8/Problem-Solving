@@ -9,17 +9,11 @@ using namespace std;
 
 int main()
 {
-	int price, pound; cin >> price >> pound;
-
-	int num = 0;
-	for (int i = 1; i <= 10; ++i) {
-		int temp = i * price;
-		num++;
-
-		if (temp % 10 == 0 || (temp - pound) % 10 == 0) {
-			break;
-		}
+	set<int> s;
+	for (int i = 0; i < 4; i++) {
+		int num; cin >> num;
+		s.insert(num);
 	}
-	cout << num << endl;
+	cout << 4 - s.size();
 	return 0;
 }
