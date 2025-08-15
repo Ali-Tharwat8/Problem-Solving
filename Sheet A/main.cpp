@@ -9,11 +9,14 @@ using namespace std;
 
 int main()
 {
-	set<int> s;
-	for (int i = 0; i < 4; i++) {
-		int num; cin >> num;
-		s.insert(num);
+	string position, instructions; cin >> position >> instructions;
+	
+	int steps = 0;
+	for (int i = 0; i < instructions.size(); ++i) {
+		if (position.at(steps) == instructions.at(i)) {
+			steps++;
+		}
 	}
-	cout << 4 - s.size();
+	cout << steps + 1 << endl;
 	return 0;
 }
