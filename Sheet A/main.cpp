@@ -7,42 +7,29 @@
 #include <numeric>
 
 using namespace std;
-void algo(vector<int> &vec, int size, int line, int bird);
 
 int main()
 {
-	int numWires; cin >> numWires;
-	vector<int> vec;
-	for (int i = 0; i < numWires; ++i) {
-		int numBirds; cin >> numBirds;
-		vec.push_back(numBirds);
-	}
-
-	int numShoots; cin >> numShoots;
-
-	int line, bird;
-	for (int i = 0; i < numShoots; ++i) {
-		cin >> line >> bird;
-		algo(vec, numWires, line, bird);
-	}
+	int num, maxSize, containerSize; cin >> num >> maxSize >> containerSize;
 	
-	for (int num : vec) {
-		cout << num << endl;
+	int filling = 0;
+	int waste = 0;
+	for (int i = 0; i < num; i++) {
+		int size; cin >> size;
+		if (size <= maxSize) {
+			filling += size;
+		}
+		if (filling > containerSize) {
+			waste++;
+			filling = 0;
+		}
 	}
+
+	cout << waste << endl;
 	
 	return 0;
 }
 
-void algo(vector<int> &vec, int size, int line, int bird) {
-	int index = line - 1;
-	if (index - 1 >= 0)
-		vec[index - 1] += bird - 1;
 
-	if(index + 1 < size)
-		vec[index + 1] += vec[index] - bird;
-
-	vec[index] = 0;
-	return;
-}
 
 
