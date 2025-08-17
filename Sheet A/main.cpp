@@ -1,31 +1,34 @@
-#include <iostream>
-#include <string>
-#include <cmath>
-#include <algorithm>
-#include <vector>
-#include <set>
-#include <numeric>
+	#include <iostream>
+	#include <string>
+	#include <cmath>
+	#include <algorithm>
+	#include <vector>
+	#include <set>
+	#include <numeric>
 
-using namespace std;
+	using namespace std;
 
-int main()
-{
-	int num; cin >> num;
-	vector<string> words(num);
-	for (int i = 0; i < num; ++i) {
-		string word; cin >> word;
-		if (word.size() > 10) {
-			word = word.front() + to_string(word.size() - 2) + word.back();
+	int main()
+	{
+		int n; long long total;
+		cin >> n >> total;
+
+		int depressed = 0;
+		for (int i = 0; i < n; i++) {
+			char c; int amount;
+			cin >> c >> amount;
+
+			if (c == '+')
+				total += amount;
+			else if (total >= amount)
+				total -= amount;
+			else
+				depressed++;
 		}
-		words.at(i) = (word);
-	}
 
-	for (int i = 0; i < num; ++i) {
-		cout << words.at(i) << endl;
+		cout << total << " " << depressed << endl;
+		return 0;
 	}
-
-	return 0;
-}
 
 
 
