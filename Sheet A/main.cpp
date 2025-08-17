@@ -10,23 +10,16 @@ using namespace std;
 
 int main()
 {
-	int num, maxSize, containerSize; cin >> num >> maxSize >> containerSize;
-	
-	int filling = 0;
-	int waste = 0;
-	for (int i = 0; i < num; i++) {
-		int size; cin >> size;
-		if (size <= maxSize) {
-			filling += size;
-		}
-		if (filling > containerSize) {
-			waste++;
-			filling = 0;
-		}
-	}
+	int numCakes, cycleTime, capacity, buildTime; cin >> numCakes >> cycleTime >> capacity >> buildTime;
 
-	cout << waste << endl;
-	
+	int numCycles = ceil((float(numCakes) / capacity));
+
+	if ((numCycles - 1) * cycleTime > buildTime) {
+		cout << "YES" << endl;
+	}
+	else
+		cout << "NO" << endl;
+
 	return 0;
 }
 
