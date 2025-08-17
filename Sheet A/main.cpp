@@ -1,34 +1,38 @@
-	#include <iostream>
-	#include <string>
-	#include <cmath>
-	#include <algorithm>
-	#include <vector>
-	#include <set>
-	#include <numeric>
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <algorithm>
+#include <vector>
+#include <set>
+#include <numeric>
 
-	using namespace std;
+using namespace std;
 
-	int main()
-	{
-		string s; cin >> s;
-		int count1 = 0, count2 = 0, count3 = 0;
-		for (int i = 0; i < s.length(); i += 2) {
-			if (s.at(i) == '1') count1++;
-			else if (s.at(i) == '2') count2++;
-			else count3++;
-		}
+int main()
+{
+	int num; cin >> num;
+	vector<int> member1;
+	vector<int> member2;
+	vector<int> member3;
 
-		string result;
-		for (int i = 0; i < count1; i++) result += "1+";
-		for (int i = 0; i < count2; i++) result += "2+";
-		for (int i = 0; i < count3; i++) result += "3+";
-		
-		if (!result.empty()) result.pop_back();
-		cout << result << endl;
-
-		return 0;
+	for (int i = 0; i < num; i++) {
+		int n; cin >> n;
+		if (n == 1)
+			member1.push_back(i + 1);
+		else if (n == 2)
+			member2.push_back(i + 1);
+		else
+			member3.push_back(i + 1);
 	}
 
+	int teams = min(member1.size(), min(member2.size(), member3.size()));
 
+	cout << teams << endl;
+	for (int i = 0; i < teams; i++) {
+		cout << member1.at(i) << " "
+			<< member2.at(i) << " "
+			<< member3.at(i) << endl;
+	}
 
-
+	return 0;
+}
