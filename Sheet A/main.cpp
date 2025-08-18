@@ -10,14 +10,15 @@ using namespace std;
 
 int main()
 {
-	string latters = "abcdefghijklmnopqrstuvwxyz";
-	int length, num; cin >> length >> num;
-	string password;
+	long long n; cin >> n;
 
-	for (int i = 0; i < length; i++) {
-		password += latters.at(i % num);
+	while (n != 0) {
+		long long squareRoot = sqrt(n);
+		if (squareRoot * squareRoot == n) {
+			cout << "yes" << endl;
+		} else {
+			cout << "no" << endl;
+		}
+		cin >> n;
 	}
-	
-	cout << password << endl;
-	return 0;
 }
